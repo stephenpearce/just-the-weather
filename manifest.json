@@ -1,0 +1,54 @@
+{
+	"manifest_version": 2,
+	"name": "Just The Weather",
+	"version": "0.0.2",
+	"permissions": [
+		"storage",
+		"webNavigation",
+		"tabs",
+		"*://*.bbc.co.uk/*",
+		"*://bbc.co.uk/*"
+	],
+	"background": {
+		"scripts": ["js/background.js"],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.bbc.co.uk/*",
+				"*://bbc.co.uk/*"
+			],
+			"js": ["js/content.js"]
+		}
+	],
+	"browser_action": {
+		"default_popup": "html/popup.html",
+		"default_icon": {
+			"16": "img/icon16.png",
+			"32": "img/icon32.png",
+			"48": "img/icon64.png",
+			"128": "img/icon128.png"
+		}
+	},
+	"icons": {
+		"16": "img/icon16.png",
+		"32": "img/icon32.png",
+		"48": "img/icon64.png",
+		"128": "img/icon128.png"
+	},
+	"web_accessible_resources": [
+		"css/styles.css"
+	],
+	"applications": {
+		"gecko": {
+			"id": "just-the-weather@stephenpearce.dev",
+			"strict_min_version": "127.0.1"
+		}
+	},
+	"_copyright": {
+		"author": "Stephen Pearce",
+		"year": "2024",
+		"email": "hello@stephenpearce.dev"
+	}
+}
